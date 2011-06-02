@@ -1,2 +1,19 @@
-p another test
-div oh baby yeah
+script(type='text/javascript')
+  now.ready(function(){
+    now.name = prompt("What's your name?", "");
+    $("#send-button").click(function(){
+      now.distributeMessage($("#text-input").val());
+      $("#text-input").val("");
+    });
+    now.receiveMessage = function(name, message){
+      $("#messages").append("<br>" + name + ": " + message);
+    }
+  });
+  
+input#text-input(type='text')
+input#send-button(type='submit')
+
+h1 Messages
+#messages
+
+

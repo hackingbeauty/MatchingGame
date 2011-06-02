@@ -19,6 +19,10 @@ app.get('/', function(request, response) {
   });
 });
 
+everyone.now.distributeMessage = function(message){
+  everyone.now.receiveMessage(this.now.name, message);
+};
+
 var port = process.env.PORT || 3000;
 console.log("Listening on " + port);
 
