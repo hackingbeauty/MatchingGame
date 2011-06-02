@@ -1,19 +1,19 @@
 script(type='text/javascript')
   now.ready(function(){
-    now.name = prompt("What's your name?", "");
+    now.name = $("#name-input").val();
     $("#send-button").click(function(){
-      now.distributeMessage($("#text-input").val());
-      $("#text-input").val("");
+      now.name = $("#name-input").val();
+      now.distributeMessage(now.name);
+      $("#name-input").val("");
     });
     now.receiveMessage = function(name, message){
-      $("#messages").append("<br>" + name + ": " + message);
+      $("#messages").append("<br>" + name + " has entered");
     }
   });
   
-input#text-input(type='text')
-input#send-button(type='submit')
+input#name-input(type='text')
+input#send-button(type='submit',value='Enter Game')
 
-h1 Messages
 #messages
 
 
