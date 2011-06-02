@@ -1,37 +1,5 @@
-script(type='text/javascript')
-  now.ready(function(){
-  
-    
-  
-    now.name = prompt('Enter your name');
-    now.roomId = "DanMarkRoom";
-    $("#join").click(function(){
-      now.message= $("#message-input").val();
-      now.sendBroadcast(now.name,now.message);
-      //$("#enter-game").remove();  
-      now.showMessagesForGroup(now.roomId);
-    });
-    
-    now.getGroup = function(obj){
-      console.log('inside getGroup ' + obj);
-      for(key in obj){
-        console.log(obj[key]);
-      }
-    };
-    
-    now.receiveBroadcast = function(name,message){
-      $("#messages").append("<br>" + name + ": " + message);
-    }
-    
-    now.showAllMessages = function(messages){
-      $('ul#previousMessages').innerHTML = '';
-      for(msg in messages){
-        console.log(messages[msg]);
-        $('ul#previousMessages').append('<li>' + messages[msg] + '</li>');
-      }
-    };
-    
-  });
+script(type='text/javascript', src='client.js')
+
  
 #enter-game 
   input#message-input(type='text')
