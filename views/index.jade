@@ -1,22 +1,44 @@
 script(type='text/javascript')
   now.ready(function(){
-    now.name = $("#name-input").val();
-    now.roomId = "someRoomId";
+  
+    
+  
+    now.name = prompt('Enter your name');
+    now.roomId = "DanMarkRoom";
     $("#join").click(function(){
-      now.name = $("#name-input").val();
-      now.sendBroadcast(now.name);
-      $("#enter-game").remove();      
+      now.message= $("#message-input").val();
+      now.sendBroadcast(now.name,now.message);
+      //$("#enter-game").remove();  
+      now.showMessagesForGroup(now.roomId);
     });
-
-    now.receiveBroadcast = function(message){
-      $("#messages").append("<br>" + message + " has entered");
+    
+    now.getGroup = function(obj){
+      console.log('inside getGroup ' + obj);
+      for(key in obj){
+        console.log(obj[key]);
+      }
+    };
+    
+    now.receiveBroadcast = function(name,message){
+      $("#messages").append("<br>" + name + ": " + message);
     }
+    
+    now.showAllMessages = function(messages){
+      $('ul#previousMessages').innerHTML = '';
+      for(msg in messages){
+        console.log(messages[msg]);
+        $('ul#previousMessages').append('<li>' + messages[msg] + '</li>');
+      }
+    };
+    
   });
  
 #enter-game 
-  input#name-input(type='text')
-  input#join(type='submit',value='Enter Game')
+  input#message-input(type='text')
+  input#join(type='submit',value='Enter Message')
 
 #messages
+
+ul#previousMessages
 
 
