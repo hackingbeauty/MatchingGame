@@ -2,6 +2,12 @@
 html(lang="en")
   head
     title
+    script(type='text/javascript', src='/nowjs/now.js')
+    script(type='text/javascript')
+      now.ready(function(){
+        // alerts "Hello World!"
+        alert(now.msg);
+      });
   body
     h1 h1 inside here
     #container
