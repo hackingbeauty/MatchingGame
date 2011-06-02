@@ -1,11 +1,15 @@
 script(type='text/javascript')
   now.ready(function(){
     now.name = $("#name-input").val();
-    $("#send-button").click(function(){
+    now.roomId = "someRoomId";
+    $("#join").click(function(){
       now.name = $("#name-input").val();
       now.distributeMessage(now.name);
       $("#enter-game").remove();
+      
+      console.log("in client code, the group is " + now.roomId);
     });
+
     now.receiveMessage = function(name, message){
       $("#messages").append("<br>" + name + " has entered");
     }
@@ -13,7 +17,7 @@ script(type='text/javascript')
  
 #enter-game 
   input#name-input(type='text')
-  input#send-button(type='submit',value='Enter Game')
+  input#join(type='submit',value='Enter Game')
 
 #messages
 
