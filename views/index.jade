@@ -4,14 +4,12 @@ script(type='text/javascript')
     now.roomId = "someRoomId";
     $("#join").click(function(){
       now.name = $("#name-input").val();
-      now.distributeMessage(now.name);
-      $("#enter-game").remove();
-      
-      console.log("in client code, the group is " + now.roomId);
+      now.sendBroadcast(now.name);
+      $("#enter-game").remove();      
     });
 
-    now.receiveMessage = function(name, message){
-      $("#messages").append("<br>" + name + " has entered");
+    now.receiveBroadcast = function(message){
+      $("#messages").append("<br>" + message + " has entered");
     }
   });
  

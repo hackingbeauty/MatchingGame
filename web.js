@@ -26,9 +26,13 @@ console.log("Listening on " + port);
 
 app.listen(port);
 
-everyone.now.distributeMessage = function(message){
-  everyone.now.receiveMessage(this.now.name, message);
-};
+// everyone.now.distributeMessage = function(message){
+//   everyone.now.receiveMessage(this.now.name, message);
+// };
+
+everyone.now.sendBroadcast = function(message){
+  everyone.now.receiveBroadcast(message);
+}
 
 everyone.now.joinRoom = function(room) {
     nowjs.getGroup(room).addUser(this.user.clientId);
