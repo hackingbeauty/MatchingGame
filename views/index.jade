@@ -4,15 +4,16 @@ script(type='text/javascript')
     $("#send-button").click(function(){
       now.name = $("#name-input").val();
       now.distributeMessage(now.name);
-      $("#name-input").val("");
+      $("#enter-game").remove();
     });
     now.receiveMessage = function(name, message){
       $("#messages").append("<br>" + name + " has entered");
     }
   });
-  
-input#name-input(type='text')
-input#send-button(type='submit',value='Enter Game')
+ 
+#enter-game 
+  input#name-input(type='text')
+  input#send-button(type='submit',value='Enter Game')
 
 #messages
 
