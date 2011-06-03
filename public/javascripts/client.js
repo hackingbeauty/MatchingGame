@@ -6,7 +6,6 @@ MatchGame = {
     });
   },
   getName:function(){
-    // now.name = prompt('Enter your name');
     console.log('inside getName');
     $( "#name-form" ).dialog({
       autoOpen: false,
@@ -15,7 +14,8 @@ MatchGame = {
       title: "Enter Name",
       buttons: {
       	"Send": function() {
-
+          now.name = $('#player-name').val();
+          $("#name-form").dialog('close'); 
       	},
       	Cancel: function() {
       		$(this).dialog("close");
