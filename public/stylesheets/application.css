@@ -13,3 +13,12 @@ body {
 .ui-icon-closethick {
   display:none !important;
 }
+
+@font-face {
+  font-family: 'Orbitron';
+  src: url("../fonts/orbitron/orbitron-bold.eot");
+  src: url(//:) format("no404"), url("../fonts/orbitron/orbitron-bold.woff") format("woff"), url("../fonts/orbitron/orbitron-bold.ttf") format("truetype"); }
+
+h1 {
+  font: bold 2.4em Orbitron, Arial, sans-serif;
+}
