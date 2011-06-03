@@ -5,35 +5,42 @@ MatchGame = {
       MatchGame.startGame();
     });
   },
+  setName:function(){
+    now.name = $('#player-name').val();
+  },
   getName:function(){
-    console.log('inside getName');
+    $('#player-name').focus();
+    $( "#name-form" ).submit(function(){
+      return false;
+    });
+    $('#player-name').keypress(function(e) {
+      if(e.keyCode==13){
+        MatchGame.setName();
+        $("#name-form").dialog('close'); 
+      }
+    });
     $( "#name-form" ).dialog({
       autoOpen: false,
       width: 450,
       modal: true,
       title: "Enter Name",
       buttons: {
-      	"Send": function() {
-          now.name = $('#player-name').val();
+      	"Join Game": function() {
+          MatchGame.setName();
           $("#name-form").dialog('close'); 
       	},
-      	Cancel: function() {
+      	"Leave": function() {
       		$(this).dialog("close");
       	}
       },
       open: function(event, ui) { 
-          $('.ui-widget-overlay').bind('click', function(){ 
-            $("#name-form").dialog('close'); 
-          });
-      }, 
-      close: function() {
-        allFields.val( "" ).removeClass( "ui-state-error" );
+        $('.ui-widget-overlay').bind('click', function(){ 
+          $("#name-form").dialog('close'); 
+        });
       }
     });        
     $('#name-form').dialog('open');
-    
-    
-    
+    return false; 
   },
   startGame:function(){
     now.roomId = "DanMarkRoom";
