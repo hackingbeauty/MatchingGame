@@ -16,7 +16,8 @@ MatchGame = {
     $('#player-name').keypress(function(e) {
       if(e.keyCode==13){
         MatchGame.setName();
-        $("#name-form").dialog('close'); 
+        $("#name-form").dialog('close');
+        $('#message-input ').focus();
       }
     });
     $( "#name-form" ).dialog({

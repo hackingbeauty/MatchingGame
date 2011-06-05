@@ -1,5 +1,12 @@
+/** {
+  margin:0;
+  padding:0;
+}*/
+
 body {
-  background:#0089d3;
+/*  background:#0089d3;
+*/  
+  background:#22252A;
 }
 
 #name-form {
@@ -21,4 +28,25 @@ body {
 
 h1 {
   font: bold 2.4em Orbitron, Arial, sans-serif;
+  color:#0089d3;
+}
+
+footer {
+  position:fixed;
+  width:100%;
+  bottom:0;
+}
+
+footer #toolbar {
+  background:#0089d3;
+  height:30px;
+}
+
+footer #message-input {
+  padding:1em;
+  background: #22252A;
+  color: #EEE;
+  width:100%;
+  font: normal 1.2em 'Trebuchet MS', sans-serif;
+  border:none;
 }

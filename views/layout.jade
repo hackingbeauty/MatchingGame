@@ -2,8 +2,14 @@
 html(lang="en")
   head
     title MatchGame
+    link(href='stylesheets/reset.css',media='screen',rel='stylesheet',type='text/css')
     link(href='stylesheets/application.css',media='screen',rel='stylesheet',type='text/css')
     link(href='stylesheets/jquery-ui-1.8.13.custom.css',media='screen',rel='stylesheet',type='text/css')
   body
     h1 MatchGame
     != body
+    footer
+      #toolbar
+      #enter-game 
+        input#message-input(type='text')
+        input#join(type='submit',value='Enter Message')
