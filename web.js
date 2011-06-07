@@ -2,7 +2,6 @@ var express = require('express');
 var app = express.createServer(express.logger());
 var path = require('path');
 var jade = require('jade');
-// var everyone = require('now').initialize(app);
 var nowjs = require('now');
 var everyone = nowjs.initialize(app);
 
@@ -19,6 +18,10 @@ app.get('/', function(request, response) {
   response.render('index', {
       locals: {some: 'Locals'}
   });
+ 
+  var Chat = require('./lib/chatserver');
+  
+  new Chat();
 });
 
 var port = process.env.PORT || 3000;

@@ -12,12 +12,16 @@ body {
   font-size:1.2em;
 }
 
+.container {
+  padding:20px;
+}
+
 #name-form {
   display:none;
 }
 
 #player-name {
-  width:410px;
+  width:404px;
 }
 
 .ui-icon-closethick {
