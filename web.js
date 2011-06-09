@@ -14,41 +14,15 @@ app.configure(function(){
 });
 
 app.get('/', function(request, response) {
-  everyone.now.msg = "Hello Yada Mark and Dan!!";
   response.render('index', {
       locals: {some: 'Locals'}
   });
  
-  var Chat = require('./lib/chatserver');
-  
-  new Chat();
+  var Chat = require('./lib/chatserver'); 
+  new Chat(everyone);
 });
 
 var port = process.env.PORT || 3000;
 console.log("Listening on " + port);
 
 app.listen(port);
-
-var messages = {};
-
-everyone.now.sendBroadcast = function(name,message){
-  everyone.now.filterBroadcast(name, message, this.now.roomId);
-};
-
-everyone.now.filterBroadcast = function(name, message, targetRoomId){
-  if(targetRoomId == this.now.roomId){
-    messages[name] = message;
-    this.now.receiveBroadcast(name,message);
-  }
-};
-
-everyone.now.showMessagesForGroup = function(roomId){
-  var group = nowjs.getGroup(roomId);
-  this.now.getGroup(this);
-  this.now.showAllMessages(messages);
-  for(msg in messages){
-    console.log(messages[msg]);
-  }
-
-};
-

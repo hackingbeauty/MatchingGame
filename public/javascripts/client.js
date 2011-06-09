@@ -3,6 +3,7 @@ MatchGame = {
     now.ready(function(){
       MatchGame.getName();
       MatchGame.startGame();
+      MatchGame.receiveBroadcasts();
     });
   },
   setName:function(){
@@ -43,31 +44,20 @@ MatchGame = {
     $('#name-form').dialog('open');
     return false; 
   },
+  receiveBroadcasts:function(){
+    now.receiveBroadcast = function(name,message){
+       $("#messages").append("<br>" + name + ": " + message);
+    };
+  },
   startGame:function(){
     now.roomId = "DanMarkRoom";
     $('#message-input').keypress(function(e) {
       if(e.keyCode==13){
         now.message= $("#message-input").val();
         now.sendBroadcast(now.name,now.message);
-        now.showMessagesForGroup(now.roomId);
         $("#message-input").val('');
-        console.log('done');
       }
     });
-    now.getGroup = function(obj){
-      for(key in obj){
-        // console.log(obj[key]);
-      }
-    };
-    now.receiveBroadcast = function(name,message){
-      $("#messages").append("<br>" + name + ": " + message);
-    };
-    now.showAllMessages = function(messages){
-      // $('ul#previousMessages').innerHTML = '';
-      // for(msg in messages){
-      //   $('ul#previousMessages').append('<li>' + messages[msg] + '</li>');
-      // }
-    }
   }
 }
 
